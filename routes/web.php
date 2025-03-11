@@ -8,13 +8,10 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ConfirmPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\SearchController;
 
 
 Auth::routes();
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 // Show the password reset request form
@@ -42,10 +39,11 @@ Route::post('register', [RegisterController::class, 'register']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Route::get('/', function () { 
+    return view('welcome'); 
+})->name('welcome');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/search', [SearchController::class, 'index'])->name('search');
+
