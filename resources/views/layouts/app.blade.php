@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color:#41ab5d;">
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color:#006d2c;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.', 'Laravel') }}

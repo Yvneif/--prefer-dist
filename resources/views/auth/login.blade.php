@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="login-box d-flex flex-column align-items-center p-4">
         <h2 class="text-center mb-4">Login</h2>
@@ -28,15 +29,20 @@
                 @enderror
             </div>
 
-            <div class="mb-3 d-flex flex-column">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" required>
-                @error('password')
+        
+
+            <label for="password" class="form-label">Password</label>
+    <div class="input-group">
+        <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" required>
+        <button type="button" class="btn btn-outline-secondary" onclick="togglePassword('password', 'eyeIcon')">
+            <i id="eyeIcon" class="fas fa-eye"></i>
+        </button>
+        @error('password')
                     <span class="invalid-feedback d-block">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            </div>
+    </div>
 
             <div class="mb-3 d-flex align-items-center">
                 <input class="form-check-input me-2" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -44,7 +50,7 @@
             </div>
 
             <div class="d-grid gap-2 w-100">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" style= "background-color:green"class="btn btn-primary">Login</button>
             </div>
 
             <div class="mt-3 text-center">
@@ -60,3 +66,20 @@
     </div>
 </div>
 @endsection
+
+<script>
+    function togglePassword(inputId, eyeIconId) {
+        let passwordInput = document.getElementById(inputId);
+        let eyeIcon = document.getElementById(eyeIconId);
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeIcon.classList.remove("fa-eye");
+            eyeIcon.classList.add("fa-eye-slash");
+        } else {
+            passwordInput.type = "password";
+            eyeIcon.classList.remove("fa-eye-slash");
+            eyeIcon.classList.add("fa-eye");
+        }
+    }
+</script>
