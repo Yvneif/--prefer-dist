@@ -73,11 +73,6 @@
             <div class="d-grid gap-2 w-100">
                 <button type="submit" style= "background-color:green" class="btn btn-primary">Login</button>
             </div>
-            <div class="mt-3 text-center">
-                @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}">Forgot Your Password?</a>
-                @endif
-            </div>
 
             <div class="mt-3 text-center">
                 <p>Already have an account? <a href="{{ route('login') }}">Login here</a></p>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\ConfirmPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\Admin\ThesisController;
 
 
 Auth::routes();
@@ -44,6 +45,13 @@ Route::get('/', function () {
 })->name('welcome');
 
 
-
 Route::get('/search', [SearchController::class, 'index'])->name('search');
+
+Route::middleware(['auth', 'Admin'])->prefix('Admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+
+    Route::resource('theses', ThesisController::class);
+});
 

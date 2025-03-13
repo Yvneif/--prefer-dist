@@ -11,7 +11,7 @@
    
     <nav class="bg-green-700 shadow p-4">
         <div class="container mx-auto flex justify-between items-center">
-        <a href="{{ route('welcome') }}" class="text-xl font-bold">Thesis Archive</a>
+        <a href="{{ route('welcome') }}" class="text-xl font-bold text-white">Thesis Archive</a>
             <div class="flex items-center">
                 <a href="#" class="text-white px-4">BSCS</a>
                 <a href="#" class="text-white px-4">BSIS</a>
