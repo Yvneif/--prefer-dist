@@ -29,7 +29,7 @@ class ThesisController extends Controller
 
         Thesis::create($request->all());
 
-        return redirect()->route('theses.index')->with('success', 'Thesis added successfully!');
+        return redirect()->route('admin.theses.index')->with('success', 'Thesis added successfully!');
     }
 
     public function edit(Thesis $thesis)
@@ -47,13 +47,13 @@ class ThesisController extends Controller
 
         $thesis->update($request->all());
 
-        return redirect()->route('theses.index')->with('success', 'Thesis updated successfully!');
+        return redirect()->route('admin.theses.index')->with('success', 'Thesis updated successfully!');
     }
 
     public function destroy(Thesis $thesis)
     {
         $thesis->delete();
-        return redirect()->route('theses.index')->with('success', 'Thesis deleted successfully!');
+        return redirect()->route('admin.theses.index')->with('success', 'Thesis deleted successfully!');
     }
 }
 

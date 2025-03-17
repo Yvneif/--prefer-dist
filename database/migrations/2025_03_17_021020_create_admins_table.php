@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('theses', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('author');
-            $table->year('year');
-            $table->text('abstract');
-            $table->string('file_path')->nullable(); // For PDF uploads
+            $table->string('name'); // This should exist
+            $table->string('email')->unique();
+            $table->string('password');
             $table->timestamps();
-        });
+        });        
     }    
 
     /**
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('theses');
+        Schema::dropIfExists('admins');
     }
 };

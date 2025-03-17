@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Admin\ThesisController;
+use App\Http\Controllers\AdminAuthController;
 
 
 Auth::routes();
@@ -47,11 +48,33 @@ Route::get('/', function () {
 
 Route::get('/search', [SearchController::class, 'index'])->name('search');
 
-Route::middleware(['auth', 'Admin'])->prefix('Admin')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
 
     Route::resource('theses', ThesisController::class);
+});
+
+Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AdminAuthController::class, 'login']);
+Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+});
+
+Route::middleware('auth:admin')->group(function () {
+    Route::resource('/admin/theses', ThesisController::class)->names([
+        'index' => 'admin.theses.index',
+        'create' => 'admin.theses.create',
+        'store' => 'admin.theses.store',
+        'show' => 'admin.theses.show',
+        'edit' => 'admin.theses.edit',
+        'update' => 'admin.theses.update',
+        'destroy' => 'admin.theses.destroy',
+    ]);
 });
 

@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <title>Admin Panel</title>
 </head>
 <body>
     <nav>
-        <a href="{{ url('/admin/dashboard') }}">Dashboard</a> |
-        <a href="{{ route('theses.index') }}">Manage Theses</a> |
-        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+        <a href="{{ route('admin.theses.index') }}">Theses</a>
+        <form action="{{ route('admin.logout') }}" method="POST">
+            @csrf
+            <button type="submit">Logout</button>
+        </form>
     </nav>
 
-    <div class="container">
+    <div>
         @yield('content')
     </div>
 </body>

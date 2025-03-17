@@ -27,7 +27,7 @@
     </style>
 </head>
 <body class="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center text-white" 
-    style="background-image: url('https://scontent.fcrk1-4.fna.fbcdn.net/v/t39.30808-6/463016522_9011482772203863_7854206505027192352_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cf85f3&_nc_ohc=lb1jOpaeTE0Q7kNvgEgkdSi&_nc_oc=AdiFMTs27NTPkk4_X0Qviui71UipWaWUeyUoLmAJRxXWQn56kQzB0OsNcTriXD_uOHM&_nc_zt=23&_nc_ht=scontent.fcrk1-4.fna&_nc_gid=ARu51yQT9aotnAVchvNdQap&oh=00_AYHQYHJFDBf_j_frwXly3zMZ5Fs89J-Rs3MHagaVUUzTOg&oe=67D5511D');">
+    style="background-image: url('./pictures/bg.jpg');">
     
     <div class="absolute inset-0 bg-black opacity-50"></div>
 
