@@ -30,7 +30,7 @@
 
             <div class="mb-3 d-flex flex-column">
                 <label for="name" class="form-label">Name</label>
-                <input type="name" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autofocus>
+                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autofocus>
                 @error('name')
                     <span class="invalid-feedback d-block">
                         <strong>{{ $message }}</strong>
